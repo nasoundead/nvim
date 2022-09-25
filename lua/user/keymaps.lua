@@ -90,12 +90,6 @@ keymap("v", ">", ">gv", opts)
 
 -- Plugins --
 
--- 使用 Ctrl+Alt+n 运行代码
-keymap('n', "<C-A-n>", "<CMD>lua require'CodeRunner'.run()<CR>", {})
--- 使用 Ctrl+` 开关浮动终端
-keymap('n', "<C-Space>", "<CMD>lua require'CodeRunner'.show()<CR>", {})
-keymap('t', "<C-Space>", "<C-\\><C-n><CMD>lua require'CodeRunner'.hide()<CR>", {})
-
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
