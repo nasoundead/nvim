@@ -70,11 +70,21 @@ keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
+keymap("i", "<C-f>", "<right>", opts)  --move cursor right
+keymap("i", "<C-b>", "<left>", opts)   --move cursor left
+keymap("i", "<C-a>", "<esc>I", opts)
+keymap("i", "<C-e>", "<esc>A", opts)
+keymap("i", "<A-f>", "<esc>wi", opts)
+keymap("i", "<A-b>", "<esc>bi", opts)
 
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+
+-- expand region
+-- keymap("v", "v", "<cmd>expand_region_expand<cr>", opts)
+-- keymap("v", "V", "<cmd>expand_region_shrink<cr>", opts)
 
 -- Plugins --
 
