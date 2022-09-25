@@ -16,6 +16,11 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- j / k 移动太慢， ctrl + u / ctrl + d 默认移动半屏，翻太快，一不留神就不知道翻到哪了
+-- 我喜欢把 ctrl + u / ctrl + d 设置成移动 9 行，演示：
+keymap("n", "<C-u>", "9k", opt)
+keymap("n", "<C-d>", "9j", opt)
+
 -- Normal --
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -23,11 +28,22 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
--- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+-- sv 水平分屏
+-- sh 垂直分屏
+-- sc 关闭当前分屏 (s = close)
+-- so 关闭其他分屏 (o = other)
+-- s>s<s=sjsk 分屏比例控制
+keymap("n", "sv", ":vsp<CR>", opt)
+keymap("n", "sh", ":sp<CR>", opt)
+keymap("n", "sc", "<C-w>c", opt)
+keymap("n", "so", "<C-w>o", opt) -- close others
+
+-- 比例控制（不常用，因为支持鼠标拖拽）
+keymap("n", "s>", ":vertical resize +20<CR>", opt)
+keymap("n", "s<", ":vertical resize -20<CR>", opt)
+keymap("n", "s=", "<C-w>=", opt)
+keymap("n", "sj", ":resize +10<CR>",opt)
+keymap("n", "sk", ":resize -10<CR>",opt)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
@@ -91,3 +107,6 @@ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
 -- Open file in default application
 keymap("n", "<leader>xo", "<Cmd> !xdg-open %<CR><CR>", opts)
+
+
+-- autocmd Filetype python nnoremap <buffer> <F6> :w<CR>:vert ter python3 "%"<CR>
