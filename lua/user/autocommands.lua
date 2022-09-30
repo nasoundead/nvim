@@ -20,6 +20,19 @@ vim.api.nvim_create_autocmd({ "User" }, {
   end,
 })
 
+-- 打开文件时自动关闭折叠
+-- vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+--   callback = function()
+--     vim.cmd "normal zR"
+--   end,
+-- })
+
+-- vim.api.nvim_create_autocmd({ "FileReadPost" }, {
+--   callback = function()
+--     vim.cmd "normal zR"
+--   end,
+-- })
+
 -- Set wrap and spell in markdown and gitcommit
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "gitcommit", "markdown" },

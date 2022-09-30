@@ -69,6 +69,9 @@ return packer.startup(function(use)
   -- symbol outline
   use 'simrat39/symbols-outline.nvim'
 
+-- pretty fold
+  use { "anuvyklack/pretty-fold.nvim" } 
+
   -- notify
   use { "rcarriga/nvim-notify" }
 

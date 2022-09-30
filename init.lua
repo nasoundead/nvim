@@ -24,5 +24,5 @@ require "user.dap"
 require "user.runcode"
 require "user.notify"
 require "user.symbolsoutline"
-
+require "user.prettyfold"
 
