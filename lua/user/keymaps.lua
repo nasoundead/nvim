@@ -74,8 +74,6 @@ keymap("i", "<C-f>", "<right>", opts)  --move cursor right
 keymap("i", "<C-b>", "<left>", opts)   --move cursor left
 keymap("i", "<C-a>", "<esc>I", opts)
 keymap("i", "<C-e>", "<esc>A", opts)
-keymap("i", "<A-f>", "<esc>wi", opts)
-keymap("i", "<A-b>", "<esc>bi", opts)
 
 -- Visual --
 -- Stay in indent mode
