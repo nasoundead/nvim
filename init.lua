@@ -22,5 +22,7 @@ require "user.alpha"
 require "user.lsp"
 require "user.dap"
 require "user.runcode"
+require "user.notify"
+require "user.symbolsoutline"
 
 

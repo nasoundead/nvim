@@ -66,6 +66,12 @@ return packer.startup(function(use)
   -- expand region
   use { "terryma/vim-expand-region" }
 
+  -- symbol outline
+  use 'simrat39/symbols-outline.nvim'
+
+  -- notify
+  use { "rcarriga/nvim-notify" }
+
   -- run code 
   use { "erietz/vim-terminator" }
 
