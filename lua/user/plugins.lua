@@ -65,6 +65,9 @@ return packer.startup(function(use)
   -- expand region
   use { "terryma/vim-expand-region" }
 
+  -- multi cursor
+  use { "mg979/vim-visual-multi" }
+
   -- symbol outline
   use 'simrat39/symbols-outline.nvim'
 
@@ -76,6 +79,8 @@ return packer.startup(function(use)
 
   -- run code 
   use { "erietz/vim-terminator" }
+  -- run tests
+  use { "klen/nvim-test" }
 
   -- cmp plugins
   use { "hrsh7th/nvim-cmp", commit = "df6734aa018d6feb4d76ba6bda94b1aeac2b378a" } -- The completion plugin
@@ -110,6 +115,7 @@ return packer.startup(function(use)
   use { "neovim/nvim-lspconfig", commit = "148c99bd09b44cf3605151a06869f6b4d4c24455" } -- enable LSP
   -- use { "williamboman/nvim-lsp-installer", commit = "e9f13d7acaa60aff91c58b923002228668c8c9e6" } -- simple to use language server installer
   use { "williamboman/mason.nvim" }
+  use { "simrat39/rust-tools.nvim"}
   use { "jose-elias-alvarez/null-ls.nvim", commit = "ff40739e5be6581899b43385997e39eecdbf9465" } -- for formatters and linters
   use { "RRethy/vim-illuminate", commit = "c82e6d04f27a41d7fdcad9be0bce5bb59fcb78e5" }
   
