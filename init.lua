@@ -27,4 +27,6 @@ require "user.runtest"
 require "user.notify"
 require "user.symbolsoutline"
 require "user.prettyfold"
+require "user.whitespace"
+require "user.highlight"
 

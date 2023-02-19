@@ -68,6 +68,12 @@ return packer.startup(function(use)
   -- multi cursor
   use { "mg979/vim-visual-multi" }
 
+  -- whitespace
+  use {'johnfrankmorgan/whitespace.nvim'}
+
+  -- highlight symbol
+  use "Pocco81/HighStr.nvim"
+
   -- symbol outline
   use 'simrat39/symbols-outline.nvim'
 
