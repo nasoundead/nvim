@@ -37,4 +37,5 @@ vim.g.loaded_netrwPlugin = 1
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
 
-vim.opt.guifont = "Iosevka NF:h12"
+-- vim.opt.guifont = "Iosevka NF:h12"
+vim.opt.guifont = "Iosevka Comfy:h12"
