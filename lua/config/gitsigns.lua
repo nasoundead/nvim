@@ -35,20 +35,15 @@ require("gitsigns").setup({
         map("n", "]h", gs.next_hunk, "Next Git hunk")
         map("n", "[h", gs.prev_hunk, "Prev Git hunk")
 
-        -- 操作当前块
-        map("n", "<leader>ghs", gs.stage_hunk, "Stage hunk")
-        map("n", "<leader>ghr", gs.reset_hunk, "Reset hunk")
-        map("v", "<leader>ghs", function() gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, "Stage hunk")
-        map("v", "<leader>ghr", function() gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, "Reset hunk")
-
-        -- 操作整个文件
-        map("n", "<leader>ghS", gs.stage_buffer, "Stage buffer")
-        map("n", "<leader>ghR", gs.reset_buffer, "Reset buffer")
-
         -- 预览变更
-        map("n", "<leader>ghp", gs.preview_hunk, "Preview hunk")
+        map("n", "<leader>hp", gs.preview_hunk, "Preview hunk")
 
         -- 查看当前行 Git 历史
-        map("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame line")
+        map("n", "<leader>hb", function() gs.blame_line({ full = true }) end, "Blame line")
+
+        map('n', '<leader>hd', gs.diffthis)
+        map('n', '<leader>hD', function()
+            gs.diffthis('~')
+        end)
     end,
 })
