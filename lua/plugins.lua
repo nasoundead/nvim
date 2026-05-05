@@ -12,6 +12,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    -- 👇 加上这一段，解决编译超时！
+    install = {
+        timeout = 0, -- 永不超时（解决 Rust 编译超时）
+    },
     -- Theme
     {
         "folke/tokyonight.nvim",
@@ -80,10 +84,55 @@ require("lazy").setup({
     --         "rcarriga/nvim-notify",
     --     }
     -- },
+    -- {
+    --     'nvim-telescope/telescope.nvim',
+    --     tag = '0.1.8',
+    --     dependencies = { 'nvim-lua/plenary.nvim' }
+    -- },
+    -- {
+    --     "dmtrkovalenko/fff.nvim",
+    --     build = "cargo build --release", -- 自动编译Rust
+    --     event = "VeryLazy",
+    --     config = function()
+    --         local fff = require("fff")
+    --         fff.setup({
+    --             -- 常用键
+    --             keymaps = {
+    --                 open_files = "<leader>ff",
+    --                 open_git = "<leader>fg",
+    --                 open_buffers = "<leader>fb",
+    --             },
+    --             -- 外观
+    --             border = true,
+    --             winhl = "Normal:NormalFloat,FloatBorder:FloatBorder",
+    --         })
+    --     end,
+    -- },
     {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.8',
-        dependencies = { 'nvim-lua/plenary.nvim' }
+        "ibhagwan/fzf-lua",
+        event = "VeryLazy",
+        config = function()
+            local fzf = require("fzf-lua")
+
+            -- 全套快捷键（和 fff 一模一样的逻辑）
+            vim.keymap.set("n", "<leader>ff", fzf.files, { desc = "查找文件" })
+            vim.keymap.set("n", "<leader>fg", fzf.git_files, { desc = "Git 文件" })
+            vim.keymap.set("n", "<leader>fb", fzf.buffers, { desc = "打开的缓冲区" })
+            vim.keymap.set("n", "<leader>fw", fzf.live_grep, { desc = "全局搜索文字" })
+            vim.keymap.set("n", "<leader>fr", fzf.oldfiles, { desc = "最近打开" })
+            vim.keymap.set("n", "<leader>fh", fzf.help_tags, { desc = "帮助文档" })
+
+            -- 简洁配置，Windows 完美运行
+            fzf.setup({
+                winopts = {
+                    border = "single",
+                    preview = { vertical = "down:40%" },
+                },
+                fzf_opts = {
+                    ["--layout"] = "reverse",
+                },
+            })
+        end,
     },
     {
         'akinsho/bufferline.nvim',
