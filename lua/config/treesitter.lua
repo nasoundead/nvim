@@ -1,10 +1,21 @@
 require 'nvim-treesitter.configs'.setup {
     -- 安装 language parser
     -- :TSInstallInfo 命令查看支持的语言
-    ensure_installed = { "html", "css", "lua",
-        "javascript", "typescript", "tsx",
-        "python", "java", "c", "cpp", "rust",
-        "markdown", "go" },
+    ensure_installed = {
+        "html",
+        "css",
+        "lua",
+        "javascript",
+        "typescript",
+        "tsx",
+        "python",
+        "java",
+        "c",
+        "cpp",
+        "rust",
+        "markdown",
+        "go"
+    },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,
@@ -19,10 +30,10 @@ require 'nvim-treesitter.configs'.setup {
         -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
         -- the name of the parser)
         -- list of language that will be disabled
-        disable = { "c", "rust", "json" },
+        -- disable = { "c", "rust", "json" },
         -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
         disable = function(lang, buf)
-            local max_filesize = 100 * 1024 -- 100 KB
+            local max_filesize = 1000 * 1024 -- 1000 KB
             local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
             if ok and stats and stats.size > max_filesize then
                 return true

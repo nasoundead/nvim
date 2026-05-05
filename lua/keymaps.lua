@@ -29,9 +29,9 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":BufferLineCyclePrev<CR>", opts)
+keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
 -- keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":BufferLineCycleNext<CR>", opts)
+keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
 -- keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Close buffers
@@ -62,7 +62,11 @@ keymap("v", ">", ">gv", opts)
 -- Better paste
 keymap("v", "p", '"_dP', opts)
 
-
+local telescope_builtin = require('telescope.builtin')
+keymap('n', '<leader>ff', telescope_builtin.find_files, { desc = 'Telescope find files' })
+keymap('n', '<leader>fg', telescope_builtin.live_grep, { desc = 'Telescope live grep' })
+keymap('n', '<leader>fb', telescope_builtin.buffers, { desc = 'Telescope buffers' })
+keymap('n', '<leader>fh', telescope_builtin.help_tags, { desc = 'Telescope help tags' })
 
 
 -- plugins

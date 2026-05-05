@@ -65,6 +65,26 @@ require("lazy").setup({
             require("config.lualine")
         end,
     },
+    -- {
+    --     "folke/noice.nvim",
+    --     event = "VeryLazy",
+    --     opts = {
+    --         -- add any options here
+    --     },
+    --     dependencies = {
+    --         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+    --         "MunifTanjim/nui.nvim",
+    --         -- OPTIONAL:
+    --         --   `nvim-notify` is only needed, if you want to use the notification view.
+    --         --   If not available, we use `mini` as the fallback
+    --         "rcarriga/nvim-notify",
+    --     }
+    -- },
+    {
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.8',
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    },
     {
         'akinsho/bufferline.nvim',
         version = "*",
@@ -79,6 +99,21 @@ require("lazy").setup({
         build = ":TSUpdate",
         config = function()
             require("config.treesitter")
+        end,
+    },
+    {
+        'nvim-mini/mini.nvim',
+        version = false,
+        config = function()
+            require("config.mini")
+        end,
+    },
+    {
+        'lewis6991/gitsigns.nvim',
+        -- 懒加载：Git 相关才加载
+        event = { "BufReadPre", "BufNewFile" },
+        config = function()
+            require("config.gitsigns")
         end,
     },
 })
